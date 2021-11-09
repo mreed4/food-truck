@@ -14,23 +14,17 @@
 }
 
 body {
-  display: grid;
   font-size: 1em;
   background-color: var(--orange);
   user-select: none;
 }
 
-@media only screen and (max-width: 768px) {
-  body {
-    user-select: none;
-  }
-}
-
 header {
   display: flex;
+  padding-top: 1em;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 811px) {
   header {
     flex-direction: column;
   }
@@ -52,7 +46,7 @@ header h1:hover {
   color: var(--brown);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 811px) {
   header h1 {
     text-align: center;
     margin: 0;
@@ -76,7 +70,7 @@ nav ul li {
   padding: 0 1em;
   display: inline-block;
   font-family: "Mohave", sans-serif;
-  font-size: 200%;
+  font-size: 175%;
   font-weight: 900;
   color: white;
   transition: all 150ms ease-in;
@@ -92,6 +86,13 @@ nav ul li {
 @media only screen and (max-width: 768px) {
   nav ul li {
     font-size: 125%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  nav ul li {
+    font-size: 115%;
+    padding: 0 0.75em;
   }
 }
 
@@ -141,37 +142,32 @@ nav ul li:hover {
   display: flex;
   justify-content: center;
   gap: 2em;
-  /*
-    background-color: var(--dark-orange);
-    /*
-    background-image: url("../images/churros.jpg");
-    background-size: cover;
-    background-position: bottom;
-    */
-  padding: 3em 0;
-  border-top: 4px dashed var(--light-brown);
+  padding: 6em 0;
+  border-top: 4px dashed var(--dark-orange);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 811px) {
   #food-menus {
     flex-direction: column;
     align-items: center;
-    padding: 1em 0;
+    padding: 2em 0;
     gap: 0;
   }
 }
 
 .menu {
   position: relative;
-  background-color: snow;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 96.1%);
   padding: 2em;
   width: 35%;
-  max-width: 500px;
+  max-width: 700px;
   border-radius: 2px;
   font-family: "Mohave", sans-serif;
   font-weight: 100;
   font-size: 150%;
   transition: font-size 150ms linear;
+  box-shadow: 0 0 3px hsla(0, 0%, 0%, 0.6);
 }
 
 /* https://codepen.io/martinwolf/pen/hxdmv */
@@ -210,10 +206,11 @@ nav ul li:hover {
   right: 5px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 811px) {
   .menu {
     width: 75%;
     font-size: 95%;
+    box-shadow: none;
   }
 
   .menu:first-child {
@@ -250,17 +247,35 @@ p.item-desc {
 }
 
 .menu h2 span.price {
-  color: black;
+  color: #ddd;
   z-index: 3;
-  font-size: 400%;
+  font-size: 300%;
   position: absolute;
-  right: 15px;
-  top: 0;
+  right: 30px;
+  top: 15px;
+  transform: rotate(-15deg);
+}
+
+@media only screen and (max-width: 811px) {
+  .menu h2 span.price {
+    font-size: 500%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .menu h2 span.price {
+    font-size: 300%;
+  }
+}
+
+.menu h2 span.price span {
+  text-transform: lowercase;
+  font-size: 30%;
 }
 
 #about {
   padding: 3em;
-  border-top: 4px dashed var(--light-brown);
+  border-top: 4px dashed var(--dark-orange);
 }
 
 #about p {
@@ -285,8 +300,9 @@ p.item-desc {
 }
 
 footer {
-  background-color: var(--light-brown);
+  background-color: var(--brown);
   padding: 2em 1em;
   font-family: Helvetica, Arial, sans-serif;
-  color: var(--brown);
+  color: var(--darker-orange);
+  font-size: 75%;
 }
