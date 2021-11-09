@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Mohave&family=Monoton&display=swap");
+
+:root {
+    --brown: hsl(9.2, 92.9%, 11%);
+    --light-brown: hsl(9.2, 92.9%, 23%);
+    --orange: hsl(8.9, 100%, 50%);
+    --dark-orange: hsl(8.9, 100%, 40%);
+    --darker-orange: hsl(8.9, 100%, 25%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    font-size: 1em;
+    background-color: var(--orange);
+    user-select: none;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        user-select: none;
+    }
+}
+
+header {
+    display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+}
+
+header h1 {
+    font-family: "Monoton", cursive;
+    color: white;
+    font-weight: normal;
+    text-transform: lowercase;
+    font-size: 300%;
+    display: inline-block;
+    margin-left: 1em;
+    transition: color 150ms ease-in-out;
+    cursor: pointer;
+}
+
+header h1:hover {
+    color: var(--brown);
+}
+
+@media only screen and (max-width: 768px) {
+    header h1 {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+}
+
+nav ul li {
+    box-sizing: border-box;
+    padding: 0 1em;
+    display: inline-block;
+    font-family: "Mohave", sans-serif;
+    font-size: 200%;
+    font-weight: 900;
+    color: white;
+    transition: all 150ms ease-in;
+
+    cursor: pointer;
+
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 9px;
+    text-decoration-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    nav ul li {
+        font-size: 125%;
+    }
+}
+
+nav ul li:hover {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+#banner {
+    text-align: center;
+}
+
+#banner > div {
+    /* Controls the size of the truck*/
+    width: 600px;
+    margin: 0 auto;
+    padding: 6em 0;
+    transition: all 150ms ease-in;
+}
+
+@media only screen and (max-width: 768px) {
+    #banner > div {
+        width: 350px;
+        padding: 3em 0;
+    }
+}
+
+#banner > div img {
+    width: 100%;
+    z-index: 3;
+}
+
+.shadow {
+    background-color: hsla(0, 0%, 0%, 0.17);
+    border-radius: 50%;
+    filter: blur(4px);
+}
+
+.truck {
+    margin: -45px auto 9px;
+    height: 30px;
+    width: 60%;
+}
+
+#food-menus {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    /*
+    background-color: var(--dark-orange);
+    /*
+    background-image: url("../images/churros.jpg");
+    background-size: cover;
+    background-position: bottom;
+    */
+    padding: 3em 0;
+}
+
+@media only screen and (max-width: 768px) {
+    #food-menus {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em 0;
+    }
+}
+
+.menu {
+    position: relative;
+    background-color: snow;
+    padding: 2em;
+    width: 35%;
+    max-width: 600px;
+    border-radius: 2px;
+    font-family: "Mohave", sans-serif;
+    font-weight: 100;
+    font-size: 115%;
+}
+
+/* https://codepen.io/martinwolf/pen/hxdmv */
+.menu::before,
+.menu::after {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    width: 40%;
+    height: 10px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu::before {
+    left: 15px;
+    transform: skew(-5deg) rotate(-5deg);
+}
+
+.menu::after {
+    right: 15px;
+    transform: skew(5deg) rotate(5deg);
+}
+
+.menu:hover::before,
+.menu:hover::after {
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.menu:hover::before {
+    left: 5px;
+}
+
+.menu:hover::after {
+    right: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        width: 75%;
+        font-size: 95%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .menu {
+        width: 75%;
+        font-size: 80%;
+    }
+}
+
+.menu h2,
+.menu h3 {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.menu h2 {
+    color: var(--dark-orange);
+    border-bottom: 3px dotted var(--dark-orange);
+}
+
+@media only screen and (max-width: 576px) {
+    .menu h2 {
+        color: var(--dark-orange);
+        border-bottom-width: 2px;
+    }
+}
+
+.menu h3 {
+    color: var(--brown);
+    border-bottom: 2px dotted var(--brown);
+}
+
+@media only screen and (max-width: 576px) {
+    .menu h3 {
+        border-bottom-width: 1px;
+    }
+}
+
+#about {
+    padding: 3em;
+}
+
+#about p {
+    color: var(--darker-orange);
+    font-size: 300%;
+    width: 60%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    #about p {
+        font-size: 150%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #about p {
+        font-size: 125%;
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: var(--brown);
+    padding: 2em 1em;
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--light-brown);
+}
